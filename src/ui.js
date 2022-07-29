@@ -18,17 +18,23 @@ export class UI {
 
     static resetContent(id){
         const container = document.getElementById(id);
-        container.innerHTML = '';
+        container.innerHTML = "";
     }
 
     static createProjects(id, arr){
         this.resetContent(id);
 
-        const container = document.getElementById(id);
+        let projects = new Set();
         arr.forEach(e => {
-            const project = document.createElement('div');
-            project.innerText = e.title;
-            container.appendChild(project);
+            projects.add(e.project);
+            console.log(e.project);
         })
+
+        const container = document.getElementById(id);
+        projects.forEach(e => {
+            const project = document.createElement('div');
+            project.innerText = `${e}`;
+            container.appendChild(project);
+        });
     }
 }
