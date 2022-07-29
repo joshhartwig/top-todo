@@ -1,18 +1,22 @@
 import { Todo } from './todo';
 
-export default class Project {
+export class Project {
     title;
     todos = [];
     constructor(title){
         this.title = title;
-        todos = [];
+        this.todos = [];
     }
 
+    // adds todo item to array
     addTodo(todo) {
         this.todos.push(todo);
+        return true;
+        // refactor to check if todo.id exists when adding
     }
 
+    // removes todo by id
     removeTodo(id) {
-        this.todos.splice(id,1);
+        // fix me
     }
 }
