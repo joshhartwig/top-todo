@@ -1,0 +1,29 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    height: 20%;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.projects {
+    margin-left: 15%;
+    width: 20%;
+    height: 50%;
+    background-color: aquamarine;
+}
+
+.todos {
+    width: 50%;
+    height: 50%;
+    background-color: burlywood;
+    margin-right: 15%;
+}

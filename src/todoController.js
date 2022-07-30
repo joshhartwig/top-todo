@@ -19,15 +19,10 @@ export class TodoController {
         this.todos.push(new Todo(newId,title,description,priority,dueDate,false,project));
     }
 
-    
-
     seed(){
-        const todo1 = new Todo(1,'Clean Dishes','Clean Dishes',1,'10/10/2025',false,'default');
-        const todo2 = new Todo(2,'Laundry','Clean clothes',1,'10/10/2025',false,'home');
-        const todo3 = new Todo(3,'Pack Suitcases','Business Travel',1,'10/10/2025',false,'default');
-        this.todos.push(todo1);
-        this.todos.push(todo2);
-        this.todos.push(todo3);
+        this.addTodo('Clean Dishes','Stuff after dinner',1,'10/10/2020','default');
+        this.addTodo('Laundry','Clean Dirty Clothese',1,'10/10/2028','home');
+        this.addTodo('Pack Suitcases','Travel!',1,'10/20/2001','home');
     }
 
 }
