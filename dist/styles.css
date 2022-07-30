@@ -27,3 +27,7 @@ body {
     background-color: burlywood;
     margin-right: 15%;
 }
+
+.todo {
+    background-color: red;
+}

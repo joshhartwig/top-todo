@@ -5,6 +5,7 @@ export class UI {
         const container = document.getElementById(id);
         arr.forEach(e => {
             const todo = document.createElement('div');
+            todo.classList.add('todo');
             todo.innerHTML = `
             <ul>
                 <li>${e.title}</li>
@@ -33,6 +34,7 @@ export class UI {
         const container = document.getElementById(id);
         projects.forEach(e => {
             const project = document.createElement('div');
+            project.classList.add('project');
             project.innerText = `${e}`;
             container.appendChild(project);
         });
