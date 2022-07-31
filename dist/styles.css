@@ -1,13 +1,15 @@
+/* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
 :root {
     font-size: 16px;
-    --navbackcolor: black;
-    --navfontcolor: white;
+    font-family: 'PT Sans', sans-serif;
+    --navbackcolor: #212529;
+    --navfontcolor: #F8F9FA;
     --bodybackcolor: yellow;
-    --mainbackcolor: blue;
+    --mainbackcolor: #ADB5BD;
     --projectsbackcolor: green;
     --projectfontcolor: white;
     --todosbackcolor: grey;
-    --todosfontcolor: yellow;
+    --todosfontcolor: yellow; 
 }
 
 body {
@@ -15,10 +17,22 @@ body {
     flex-direction: column;
 }
 
+/* ------------ Nav --------------- */
+
 .nav {
     height: 20%;
     margin-bottom: 5%;
+    background-color: var(--navbackcolor);
+    padding-left: 20px;
 }
+
+.nav-para {
+    color: var(--navfontcolor);
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+/* ------------ Main --------------- */
 
 .main {
     display: flex;
@@ -26,7 +40,9 @@ body {
     justify-content: center;
     margin-left: 20%;
     margin-right: 20%;
+    padding: 3rem 3rem 3rem 3rem;
     background-color: var(--mainbackcolor);
+    border-radius: 25px;
 }
 
 /* ------------ Todos --------------- */
@@ -37,7 +53,8 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: aqua;   
+    background-color: #6C757D;   
+    border-radius: 25px;
 }
 
 
