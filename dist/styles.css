@@ -1,4 +1,14 @@
-
+:root {
+    font-size: 16px;
+    --navbackcolor: black;
+    --navfontcolor: white;
+    --bodybackcolor: yellow;
+    --mainbackcolor: blue;
+    --projectsbackcolor: green;
+    --projectfontcolor: white;
+    --todosbackcolor: grey;
+    --todosfontcolor: yellow;
+}
 
 body {
     display: flex;
@@ -7,27 +17,36 @@ body {
 
 .nav {
     height: 20%;
+    margin-bottom: 5%;
 }
 
 .main {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: var(--mainbackcolor);
 }
 
-.projects {
-    margin-left: 15%;
-    width: 20%;
-    height: 50%;
-    background-color: aquamarine;
-}
-
-.todos {
-    width: 50%;
-    height: 50%;
-    background-color: burlywood;
-    margin-right: 15%;
-}
+/* ------------ Todos --------------- */
 
 .todo {
-    background-color: red;
+    margin-top: 1em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: aqua;   
+}
+
+
+/* --------- Projects ----------- */
+
+.projects {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
