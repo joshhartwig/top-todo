@@ -12,9 +12,6 @@ export class UI {
             <div class='todo-accent'></div>
             <div class='todo-title'>
                 <p class='todo-title-para'>${e.title}</p>
-                <div class='todo-desc'>
-                    <p class='todo-desc-para'>${e.description}</p>
-                </div>
             </div>
             <div class='todo-date'>
                 <p class='todo-date-para'>${e.dueDate}</p>

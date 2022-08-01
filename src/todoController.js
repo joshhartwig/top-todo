@@ -14,15 +14,16 @@ export class TodoController {
         UI.createProjects('project-container', this.todos);
     }
 
-    addTodo(title,description,priority,dueDate,project){
+    addTodo(title,priority,dueDate,project){
         const newId = this.todos.length + 1;
-        this.todos.push(new Todo(newId,title,description,priority,dueDate,false,project));
+        this.todos.push(new Todo(newId,title,priority,dueDate,false,project));
     }
 
     seed(){
-        this.addTodo('Clean Dishes','Stuff after dinner',1,'10/10/2020','default');
-        this.addTodo('Laundry','Clean Dirty Clothese',1,'10/10/2028','home');
-        this.addTodo('Pack Suitcases','Travel!',1,'10/20/2001','home');
+        this.addTodo('Math Homework',2,'9/22/2022','Default');
+        this.addTodo('Laundry Day',1,'10/10/2022','Default');
+        this.addTodo('Pay Utils',3,'10/12/2022','Home');
+        this.addTodo('Rent Due',1,'9/20/22','Work');
     }
 
 }
