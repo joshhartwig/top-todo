@@ -56,11 +56,20 @@ body {
     display: flex;
     flex-direction: row;
     background-color: #6C757D;
+    width: 20em;
 }
 
 .todo-accent {
     width: 10%;
     background-color: var(--todoaccenthighp);
+}
+
+.todo-title {
+    padding-left: 10px;
+}
+
+.todo-date {
+    padding-left: 10px;
 }
 
 
