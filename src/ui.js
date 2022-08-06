@@ -1,4 +1,15 @@
 export class UI {
+    // opens the modal dialog to add a new todo
+    static openModal(id){
+        const modal = document.getElementById(id);
+        modal.style.display = 'block';
+    };
+
+    // close modal dialog
+    static closeModal(id){
+        const modal = document.getElementById(id);
+        modal.style.display = 'none';
+    };
 
     // create a div for each todo item in our container
     static createTodos(id, arr){

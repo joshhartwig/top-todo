@@ -4,7 +4,6 @@ import { UI } from './ui';
 
 export class TodoController {
     todos
-
     constructor(){
         this.todos = [];
         this.projects = [];
