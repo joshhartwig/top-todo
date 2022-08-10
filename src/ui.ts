@@ -71,6 +71,7 @@ export class UI {
                 container.appendChild(todo);
             });
         }
+        console.log('ran updateDisplay');
         
     }
 }

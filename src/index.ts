@@ -1,1 +1,3 @@
-console.log('hello world');
+import { Controller } from './controller';
+
+const cont = new Controller(window);
