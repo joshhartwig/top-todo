@@ -8,6 +8,7 @@ export class Controller {
     button: any;
     formbutton: any;
     window: any;
+    ui: UI;
 
     constructor(window:any){
         this.projects = [];
@@ -16,6 +17,15 @@ export class Controller {
         this.todos.push(new Todo(2,'Clean Room','10/10/2024',false,'default'));
         this.todos.push(new Todo(3,'Tidy Up House','10/10/2024',false,'default'));
         this.todos.push(new Todo(4,'Meal Prep','10/10/2024',false,'default'));
+
+        let uiMap = {
+            todoContainer : 'todo-container',
+            projectContainer: 'project-container',
+            modalContainer: 'modal-container',
+            modalOpenButton: 'modal-btn',
+            modalCloseButton: '',
+        };
+        this.ui = new UI(uiMap);
         
         this.window = window;
         this.window.onclick = function(event:any){
@@ -27,7 +37,7 @@ export class Controller {
         this.modal = document.getElementById('modal');
         this.button = document.getElementById('btn');
         this.button.onclick = function(){
-            UI.openModal('modal');
+            this.ui.openModal();
         };
 
         this.formbutton = document.getElementById('frm-btn');
@@ -35,7 +45,7 @@ export class Controller {
             this.addTodo();
         }
         
-        UI.updateDisplay('todo-container','project-container',this.todos);
+        this.ui.updateDisplay(this.todos);
         
     }
 
@@ -47,17 +57,10 @@ export class Controller {
         
         const newId = this.todos.length + 1;
         this.todos.push(new Todo(newId,title.value,date.value,isDone,project.value));
-        UI.updateDisplay('todo-container','project-container',this.todos);
+        this.ui.updateDisplay(this.todos);
         console.log('added todo');
     }
 
-    openModal() : void {
-        UI.openModal('modal');
-    }
-
-    closeModal() : void {
-        UI.closeModal('modal');
-    }
 
 
 

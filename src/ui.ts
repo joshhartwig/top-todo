@@ -1,27 +1,41 @@
 import { Todo } from "./todo";
 
 export class UI {
+    todoContainer: string;
+    projectContainer: string;
+    modalContainer: string;
+    modalOpenButton: string;
+    modalCloseButton : string;
+    
+    constructor(obj:any){
+        this.todoContainer = obj.todoContainer;
+        this.projectContainer = obj.prjContainer;
+        this.modalContainer = obj.modalContainer;
+        this.modalOpenButton = obj.modalOpenButton;
+        this.modalCloseButton = obj.modalCloseButton;
+    }
+            
 
     // open our modal dialog
-    static openModal(id:string) :void {
-        const modal = document.getElementById(id);
+    openModal() :void {
+        const modal = document.getElementById(this.modalContainer);
         if(modal){
             modal.style.display = 'block';
         }
     }
 
     // close our modal dialog
-    static closeModal(id:string) : void {
-        const modal = document.getElementById(id);
+    closeModal() : void {
+        const modal = document.getElementById(this.modalContainer);
         if(modal){
             modal.style.display = 'none';
         }
     }
 
     // clears content dynamically generated
-    static clearContent(tdContainerId:string, prjContainerId:string){
-        const projContainer = document.getElementById(prjContainerId);
-        const todoContainer = document.getElementById(tdContainerId);
+    clearContent(){
+        const projContainer = document.getElementById(this.projectContainer);
+        const todoContainer = document.getElementById(this.todoContainer);
 
         if(projContainer && todoContainer){
             projContainer.innerHTML = '';
@@ -30,10 +44,10 @@ export class UI {
     }
 
     // create todos in a specific container
-    static updateDisplay(tdContainerId:string, prjContainerId:string, arr:Todo[]) : void {
+    updateDisplay(arr:Todo[]) : void {
         
         // update projects by getting unique values from array
-        const projContainer = document.getElementById(prjContainerId);
+        const projContainer = document.getElementById(this.projectContainer);
         if(projContainer){
             const projects: string[] = [];
             arr.forEach(e => {      
@@ -54,7 +68,7 @@ export class UI {
         }
 
         // update todos
-        const container = document.getElementById(tdContainerId);
+        const container = document.getElementById(this.todoContainer);
         if (container) {
             arr.forEach(e => {
                 const todo = document.createElement('div');
@@ -71,7 +85,5 @@ export class UI {
                 container.appendChild(todo);
             });
         }
-        console.log('ran updateDisplay');
-        
     }
 }
