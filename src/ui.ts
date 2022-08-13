@@ -4,18 +4,13 @@ export class UI {
     todoContainer: string;
     projectContainer: string;
     modalContainer: string;
-    modalOpenButton: string;
-    modalCloseButton : string;
     
     constructor(obj:any){
         this.todoContainer = obj.todoContainer;
-        this.projectContainer = obj.prjContainer;
+        this.projectContainer = obj.projectContainer;
         this.modalContainer = obj.modalContainer;
-        this.modalOpenButton = obj.modalOpenButton;
-        this.modalCloseButton = obj.modalCloseButton;
     }
-            
-
+          
     // open our modal dialog
     openModal() :void {
         const modal = document.getElementById(this.modalContainer);
@@ -87,3 +82,4 @@ export class UI {
         }
     }
 }
+

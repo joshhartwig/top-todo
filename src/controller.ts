@@ -5,48 +5,48 @@ export class Controller {
     projects : string[];
     todos: Todo[];
     modal: any;
-    button: any;
-    formbutton: any;
+    modalBtn: any;
+    frmBtn: any;
     window: any;
     ui: UI;
 
     constructor(window:any){
         this.projects = [];
         this.todos = [];
+        this.window = window;
         this.todos.push(new Todo(1,'Wash Dishes','10/10/2024',false,'default'));
         this.todos.push(new Todo(2,'Clean Room','10/10/2024',false,'default'));
         this.todos.push(new Todo(3,'Tidy Up House','10/10/2024',false,'default'));
         this.todos.push(new Todo(4,'Meal Prep','10/10/2024',false,'default'));
+        
 
+        // object for all ui elements needed to update ui class
         let uiMap = {
             todoContainer : 'todo-container',
             projectContainer: 'project-container',
             modalContainer: 'modal-container',
-            modalOpenButton: 'modal-btn',
-            modalCloseButton: '',
         };
         this.ui = new UI(uiMap);
         
-        this.window = window;
-        this.window.onclick = function(event:any){
+        this.modal = document.getElementById('modal');
+        window.onclick = function(event:any){
             if(event.target === this.modal){
                 this.modal.style.display = 'none';
             }
         };
         
-        this.modal = document.getElementById('modal');
-        this.button = document.getElementById('btn');
-        this.button.onclick = function(){
+
+        this.modalBtn = document.getElementById('modal-btn');
+        this.modalBtn.onclick = function(){
             this.ui.openModal();
         };
 
-        this.formbutton = document.getElementById('frm-btn');
-        this.formbutton.onclick = function(){
+        this.frmBtn = document.getElementById('frm-btn');
+        this.frmBtn.onclick = function(){
             this.addTodo();
         }
-        
+
         this.ui.updateDisplay(this.todos);
-        
     }
 
     addTodo() : void {
