@@ -2,64 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/controller.ts":
-/*!***************************!*\
-  !*** ./src/controller.ts ***!
-  \***************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Controller = void 0;
-const todo_1 = __webpack_require__(/*! ./todo */ "./src/todo.ts");
-const ui_1 = __webpack_require__(/*! ./ui */ "./src/ui.ts");
-class Controller {
-    constructor(window) {
-        this.projects = [];
-        this.todos = [];
-        this.window = window;
-        this.todos.push(new todo_1.Todo(1, 'Wash Dishes', '10/10/2024', false, 'default'));
-        this.todos.push(new todo_1.Todo(2, 'Clean Room', '10/10/2024', false, 'default'));
-        this.todos.push(new todo_1.Todo(3, 'Tidy Up House', '10/10/2024', false, 'default'));
-        this.todos.push(new todo_1.Todo(4, 'Meal Prep', '10/10/2024', false, 'default'));
-        let uiMap = {
-            todoContainer: 'todo-container',
-            projectContainer: 'project-container',
-            modalContainer: 'modal-container',
-        };
-        this.ui = new ui_1.UI(uiMap);
-        this.modal = document.getElementById('modal');
-        window.onclick = function (event) {
-            if (event.target === this.modal) {
-                this.modal.style.display = 'none';
-            }
-        };
-        this.modalBtn = document.getElementById('modal-btn');
-        this.modalBtn.onclick = function () {
-            this.ui.openModal();
-        };
-        this.frmBtn = document.getElementById('frm-btn');
-        this.frmBtn.onclick = function () {
-            this.addTodo();
-        };
-        this.ui.updateDisplay(this.todos);
-    }
-    addTodo() {
-        const title = document.getElementById('todo-title');
-        const date = document.getElementById('todo-date');
-        const isDone = false;
-        const project = document.getElementById('todo-project');
-        const newId = this.todos.length + 1;
-        this.todos.push(new todo_1.Todo(newId, title.value, date.value, isDone, project.value));
-        this.ui.updateDisplay(this.todos);
-        console.log('added todo');
-    }
-}
-exports.Controller = Controller;
-
-
-/***/ }),
-
 /***/ "./src/todo.ts":
 /*!*********************!*\
   !*** ./src/todo.ts ***!
@@ -195,8 +137,51 @@ var exports = __webpack_exports__;
   \**********************/
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const controller_1 = __webpack_require__(/*! ./controller */ "./src/controller.ts");
-const cont = new controller_1.Controller(window);
+const todo_1 = __webpack_require__(/*! ./todo */ "./src/todo.ts");
+const ui_1 = __webpack_require__(/*! ./ui */ "./src/ui.ts");
+let projects = [];
+let todos = [];
+const modal = document.getElementById('modal-container');
+const modalBtn = document.getElementById('modal-btn');
+const frmBtn = document.getElementById('frm-btn');
+const title = document.getElementById('todo-title');
+const date = document.getElementById('todo-date');
+const project = document.getElementById('todo-project');
+registerEventHandlers();
+let ui = new ui_1.UI({
+    todoContainer: 'todo-container',
+    projectContainer: 'project-container',
+    modalContainer: 'modal-container',
+});
+todos.push(new todo_1.Todo(1, 'Wash Dishes', '10/10/2024', false, 'default'));
+todos.push(new todo_1.Todo(2, 'Clean Room', '10/10/2024', false, 'default'));
+todos.push(new todo_1.Todo(3, 'Tidy Up House', '10/10/2024', false, 'default'));
+todos.push(new todo_1.Todo(4, 'Meal Prep', '10/10/2024', false, 'default'));
+ui.updateDisplay(todos);
+function registerEventHandlers() {
+    window.onclick = function (e) {
+        if (e.target === modal) {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+    };
+    if (modalBtn) {
+        modalBtn.onclick = () => {
+            ui.openModal();
+        };
+    }
+    if (frmBtn) {
+        frmBtn.onclick = () => {
+            newTodo();
+        };
+    }
+}
+function newTodo() {
+    const id = todos.length + 1;
+    todos.push(new todo_1.Todo(id, title.value, date.value, false, project.value));
+    ui.updateDisplay(todos);
+}
 
 })();
 
