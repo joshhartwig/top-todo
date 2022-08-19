@@ -40,9 +40,12 @@ export class UI {
 
     // create todos in a specific container
     updateDisplay(arr:Todo[]) : void {
+        this.clearContent();
+
+        // create div for project entries
+        const projContainer = document.getElementById(this.projectContainer);
         
         // update projects by getting unique values from array
-        const projContainer = document.getElementById(this.projectContainer);
         if(projContainer){
             const projects: string[] = [];
             arr.forEach(e => {      
@@ -60,6 +63,14 @@ export class UI {
                 project.innerText = `${e}`;
                 projContainer?.appendChild(project);     
             });
+
+            //render button
+            let btnDiv = document.createElement('div');
+            let btn = document.createElement('button');
+            btn.innerText = 'Create New Todo';
+            btnDiv.appendChild(btn);
+            projContainer.appendChild(btnDiv);
+
         }
 
         // update todos

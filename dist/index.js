@@ -61,6 +61,7 @@ class UI {
         }
     }
     updateDisplay(arr) {
+        this.clearContent();
         const projContainer = document.getElementById(this.projectContainer);
         if (projContainer) {
             const projects = [];
@@ -76,6 +77,11 @@ class UI {
                 project.innerText = `${e}`;
                 projContainer === null || projContainer === void 0 ? void 0 : projContainer.appendChild(project);
             });
+            let btnDiv = document.createElement('div');
+            let btn = document.createElement('button');
+            btn.innerText = 'Create New Todo';
+            btnDiv.appendChild(btn);
+            projContainer.appendChild(btnDiv);
         }
         const container = document.getElementById(this.todoContainer);
         if (container) {
@@ -153,10 +159,7 @@ let ui = new ui_1.UI({
     projectContainer: 'project-container',
     modalContainer: 'modal-container',
 });
-todos.push(new todo_1.Todo(1, 'Wash Dishes', '10/10/2024', false, 'default'));
-todos.push(new todo_1.Todo(2, 'Clean Room', '10/10/2024', false, 'default'));
-todos.push(new todo_1.Todo(3, 'Tidy Up House', '10/10/2024', false, 'default'));
-todos.push(new todo_1.Todo(4, 'Meal Prep', '10/10/2024', false, 'default'));
+retrieveFromLocalStorage();
 ui.updateDisplay(todos);
 function registerEventHandlers() {
     window.onclick = function (e) {
@@ -180,7 +183,26 @@ function registerEventHandlers() {
 function newTodo() {
     const id = todos.length + 1;
     todos.push(new todo_1.Todo(id, title.value, date.value, false, project.value));
+    localStorage.setItem('todos', JSON.stringify(todos));
     ui.updateDisplay(todos);
+    ui.closeModal();
+}
+function retrieveFromLocalStorage() {
+    if (localStorage.getItem('todos') === null) {
+        seedTodos();
+    }
+    else {
+        let tmp = localStorage.getItem('todos');
+        todos = JSON.parse(tmp);
+    }
+}
+function seedTodos() {
+    if (todos.length === 0) {
+        todos.push(new todo_1.Todo(1, 'Wash Dishes', '10/10/2024', false, 'default'));
+        todos.push(new todo_1.Todo(2, 'Clean Room', '10/10/2024', false, 'default'));
+        todos.push(new todo_1.Todo(3, 'Tidy Up House', '10/10/2024', false, 'default'));
+        todos.push(new todo_1.Todo(4, 'Meal Prep', '10/10/2024', false, 'default'));
+    }
 }
 
 })();

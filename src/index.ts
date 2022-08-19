@@ -19,10 +19,9 @@ let ui : UI = new UI({
     modalContainer: 'modal-container',
 });
 
-todos.push(new Todo(1,'Wash Dishes','10/10/2024',false,'default'));
-todos.push(new Todo(2,'Clean Room','10/10/2024',false,'default'));
-todos.push(new Todo(3,'Tidy Up House','10/10/2024',false,'default'));
-todos.push(new Todo(4,'Meal Prep','10/10/2024',false,'default'));
+retrieveFromLocalStorage();
+
+
 
 ui.updateDisplay(todos);
 
@@ -58,8 +57,26 @@ function newTodo() : void {
         false,
         project.value
         ));
+    localStorage.setItem('todos',JSON.stringify(todos));
     ui.updateDisplay(todos);
+    ui.closeModal();
 }
 
+function retrieveFromLocalStorage(): void {
+    if(localStorage.getItem('todos') === null){
+        seedTodos();
+    } else {
+        let tmp: any = localStorage.getItem('todos');
+        todos = JSON.parse(tmp);
+    }
 
+}
 
+function seedTodos() {
+    if(todos.length === 0){
+        todos.push(new Todo(1,'Wash Dishes','10/10/2024',false,'default'));
+        todos.push(new Todo(2,'Clean Room','10/10/2024',false,'default'));
+        todos.push(new Todo(3,'Tidy Up House','10/10/2024',false,'default'));
+        todos.push(new Todo(4,'Meal Prep','10/10/2024',false,'default'));
+    }
+}
