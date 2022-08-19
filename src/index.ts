@@ -20,11 +20,7 @@ let ui : UI = new UI({
 });
 
 retrieveFromLocalStorage();
-
-
-
 ui.updateDisplay(todos);
-
 
 function registerEventHandlers(){
     window.onclick = function(e:any){

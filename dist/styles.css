@@ -1,6 +1,5 @@
 /* https://www.canva.com/colors/color-palettes/water-foam/ */
 :root {
-    font-size: 1.5vw;
     font-family: 'PT Sans', sans-serif;
     --navbackcolor: #167D7F;
     --navfontcolor: #F8F9FA;
@@ -14,6 +13,34 @@
     --todosaccentmedp: green;
     --todoaccenthighp: red;
     --modalbackcolor: #29A0B1;
+}
+
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
+    font-size: 62.5%; 
+    font-size: 16px; 
+
+    @media (max-width: 1200px) {
+        font-size: 62.5%; 
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 56.75%; 
+    }
+
+    @media (max-width: 800px) {
+        font-size: 50%; 
+    }
+
+    @media (max-width: 700px) {
+        font-size: 43.75%; 
+    }
+
+    @media (max-width: 400px) {
+        // font-size: 40%; 
+    }
 }
 
 h1 {
