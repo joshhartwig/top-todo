@@ -16,14 +16,17 @@ export class UI {
         const modal = document.getElementById(this.modalContainer);
         if(modal){
             modal.style.display = 'block';
+            
         }
     }
 
     // close our modal dialog
     closeModal() : void {
         const modal = document.getElementById(this.modalContainer);
+        
         if(modal){
             modal.style.display = 'none';
+            
         }
     }
 

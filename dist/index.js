@@ -80,7 +80,7 @@ class UI {
             });
             let btnDiv = document.createElement('div');
             let btn = document.createElement('button');
-            btn.innerText = 'Create New Todo';
+            btn.innerText = 'New Todo';
             btn.id = 'modal-btn';
             btn.onclick = () => {
                 this.openModal();

@@ -1,6 +1,6 @@
 /* https://www.canva.com/colors/color-palettes/water-foam/ */
 :root {
-    font-size: 16px;
+    font-size: 1.5vw;
     font-family: 'PT Sans', sans-serif;
     --navbackcolor: #167D7F;
     --navfontcolor: #F8F9FA;
@@ -16,6 +16,10 @@
     --modalbackcolor: #29A0B1;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -25,14 +29,13 @@ body {
 /* ------------ Nav --------------- */
 
 .nav {
-    height: 20%;
+    height: 10vh;
     background-color: var(--navbackcolor);
     padding-left: 20px;
 }
 
 .nav-para {
     color: var(--navfontcolor);
-    font-size: 2em;
     font-weight: bolder;
 }
 
@@ -42,7 +45,11 @@ body {
     display: flex;
     flex-direction: row;
     background-color: var(--mainbackcolor);
-    
+    height: 90vh;
+}
+
+.project {
+    padding: 0em 0em .5em 0em;
 }
 
 .projects {
@@ -54,11 +61,11 @@ body {
     background-color: var(--projectsbackcolor);
 }
 
-.project {
-    padding: 0em 0em .5em 0em;
-}
-
 .todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: var(--todosbackcolor);
     width: 80%;
 }
@@ -104,7 +111,7 @@ body {
 
 .modal-content {
     background-color: var(--modalbackcolor);
-    margin: 25% auto;
+    margin: 10% auto;
     padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
