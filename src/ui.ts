@@ -60,14 +60,19 @@ export class UI {
 
             unique.forEach(e => {
                 const project = document.createElement('div');
-                project.innerText = `${e}`;
+                project.classList.add('project');
+                project.innerText = `#${e}`;
                 projContainer?.appendChild(project);     
             });
 
             //render button
             let btnDiv = document.createElement('div');
             let btn = document.createElement('button');
-            btn.innerText = 'Create New Todo';
+            btn.innerText = 'New Todo';
+            btn.id = 'modal-btn';
+            btn.onclick = () => {
+                this.openModal();
+            }
             btnDiv.appendChild(btn);
             projContainer.appendChild(btnDiv);
 

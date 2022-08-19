@@ -13,6 +13,7 @@
     --todosaccentlowp: yellow;
     --todosaccentmedp: green;
     --todoaccenthighp: red;
+    --modalbackcolor: #29A0B1;
 }
 
 body {
@@ -51,6 +52,10 @@ body {
     width: 20%;
     align-items: center;
     background-color: var(--projectsbackcolor);
+}
+
+.project {
+    padding: 0em 0em .5em 0em;
 }
 
 .todos {
@@ -98,7 +103,7 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--modalbackcolor);
     margin: 25% auto;
     padding-top: 50px;
     padding-left: 50px;

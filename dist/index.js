@@ -74,12 +74,17 @@ class UI {
             });
             unique.forEach(e => {
                 const project = document.createElement('div');
-                project.innerText = `${e}`;
+                project.classList.add('project');
+                project.innerText = `#${e}`;
                 projContainer === null || projContainer === void 0 ? void 0 : projContainer.appendChild(project);
             });
             let btnDiv = document.createElement('div');
             let btn = document.createElement('button');
             btn.innerText = 'Create New Todo';
+            btn.id = 'modal-btn';
+            btn.onclick = () => {
+                this.openModal();
+            };
             btnDiv.appendChild(btn);
             projContainer.appendChild(btnDiv);
         }
